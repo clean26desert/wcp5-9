@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 col-lg-offset-1">
+			<h2>User info</h2>
+			<!-- form_for部分 -->
+			<%= form_for(@user) do |f| %>
+				<label>Name</label>
+				<p><%= f.text_field :name %></p>
+				<p><label>Image</label> <%= f.attachment_field :image %></p>
+				<p><label>Introduction</label></p>
+				<p><%= f.text_area :introduct %></p>
+				
+				<%= f.submit 'Update User' %>
+			<% end %>
+		</div>
+	</div>
+</div>

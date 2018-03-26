@@ -1,0 +1,35 @@
+			<h2>User info</h2>
+			   <%= attachment_image_tag user, :image, :fill, 100, 100, class: "pull-left", format: 'jpeg', fallback: "no_image.jpg" %>
+			<table id="profile-text">
+				<tr>
+					<th>name</th><th><%= user.name %></th>
+				</tr>
+				<tr>
+					<th>introduction</th><th><%= user.introduct %></h
+				</tr>
+			</table>
+			<% if @user.id == current_user.id %>
+				<div class="row">
+						<%= link_to "", edit_user_path(user), class: "col-lg-11 col-lg-offset-1 btn btn-default glyphicon glyphicon-wrench" %>
+				</div>
+			<% end %>
+			<section>
+				<h2>New book</h2>
+				<div class="row">
+					<%= form_for(book) do |f| %>
+						<%= f.label :title %><br />
+			         	<div class="row">
+							<%= f.text_field :title, autocomplete: "title", class: "col-lg-11 col-lg-offset-1" %>
+						</div><br />
+
+						<%= f.label :Opinion %><br />
+			         	<div class="row">
+							<%= f.text_area :body, autocomplete: "title", class: "col-lg-11 col-lg-offset-1" %>
+						</div><br />
+
+			         	<div class="row">
+							<%= f.submit 'Create Book', class: "btn btn-primary col-lg-11 col-lg-offset-1 white-text" %>
+						</div>
+					<% end %>
+				</div>
+			</section>

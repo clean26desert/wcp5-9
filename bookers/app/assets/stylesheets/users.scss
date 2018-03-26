@@ -1,0 +1,24 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#profile-text {
+	table-layout: fixed;
+}
+
+#profile-text td,th {
+	border-top-style: solid;
+	border-top-width: thin;
+}
+
+.wide10 {
+	width: 10%;
+}
+
+.wide20 {
+	width: 20%;
+}
+
+.wide70 {
+	width: 70%;
+}

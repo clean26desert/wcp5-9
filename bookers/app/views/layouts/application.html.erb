@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="row">
+          <nav class="nav navbar-nav navbar-left">
+            <span class="glyphicon glyphicon-book">Bookers</span>
+          </nav>
+          <nav class="nav navbar-nav navbar-right">
+            <ul>
+              <% if user_signed_in? %>
+                <li>
+                  <span class="glyphicon glyphicon-home"><%= link_to 'Home', new_user_session_path, :class=>"nav-li" %>
+                  </span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-user"><%= link_to 'Users', users_path, :class=>"nav-li" %>
+                  </span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-book"><%= link_to 'Books', books_path, :class=>"nav-li" %>
+                  </span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-log-out"><%= link_to 'log Out', destroy_user_session_path, :class=>"nav-li", method: :delete %>
+                  </span>
+                </li>
+              <% else %>
+                  <span class="glyphicon glyphicon-home"><%= link_to 'Home', root_path, :class=>"nav-li" %></span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-link"><%= link_to 'About', home_about_path, :class=>"nav-li" %></span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-edit"><%= link_to 'sign up', new_user_registration_path, :class=>"nav-li" %>
+                  </span>
+                </li>
+                <li>
+                  <span class="glyphicon glyphicon-log-in"><%= link_to 'log in', new_user_session_path, :class=>"nav-li" %>
+                  </span>
+                </li>
+                <li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div class="body">
+      <%= yield %>
+      <div class="container">
+        <div class="row">
+          <span class="col-lg-3 col-lg-offset-9">CopyRight Infratop.inc</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

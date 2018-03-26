@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h1>Editing Book</h1>
+
+			<!-- form_for部分 -->
+			<%= form_for(@book) do |f| %>
+				<label>Title</label>
+					<%= f.text_field :title, class: "wide100" %>
+				<label>Body</label>
+				<%= f.text_area :body, class: "wide100" %>
+				
+				<%= f.submit 'Update Book', class: "btn btn-primary white-text wide100" %>
+			<% end %>
+
+			<span>
+				<span><%= link_to "Show", book_path %></span>
+				<span> | </span>
+				<span><%= link_to "Back", books_path %></span>
+			</span>
+		</div>
+</div>
