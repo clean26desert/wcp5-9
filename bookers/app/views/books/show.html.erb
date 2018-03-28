@@ -7,7 +7,13 @@
 		<div class="col-lg-7 padding-left">
 			<h2>Book detail</h2>
 			<table class="books-text">
-				<td><%= attachment_image_tag @user, :image, :fill, 50, 50, class: "pull-left", format: 'jpeg', fallback: "no_image.jpg" %></td>
+				<td>
+					<% @users.each do |user| %>
+						<% if @book.user_id == user.id %>
+							<%= attachment_image_tag user, :image, :fill, 100, 100, class: "pull-left", format: 'jpeg', fallback: "no_image.jpg" %>
+						<% end %>
+					<% end %>
+				</td>
 				<td><%= @book.title %></td>
 				<td><%= @book.body %></td>
 				<td>

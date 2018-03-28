@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def show
     # ストロングパラメーターを使用
 		@user = User.find(params[:id])
-		@books = Book.all
 		@book = Book.new
+    @books = Book.all
   end
 
   def index
@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   def edit
     # ストロングパラメーターを使用
   	@user = User.find(params[:id])
+    unless @user.id == current_user.id then
+        redirect_to users_path
+      end
   end
 
   def update
