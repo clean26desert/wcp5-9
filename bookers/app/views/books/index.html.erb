@@ -7,9 +7,9 @@
 		<div class="col-lg-7 padding-left">
 			<h2>Books</h2>
 			<table class="books-text">
-				<tr class="height100"><th></th><strong><th>Title</th><th>Opinion</th></strong></tr>
+				<tr class><th></th><strong><th>Title</th><th>Opinion</th></strong></tr>
 				<% @books.each do |book| %>
-					<tr>
+					<tr class="height100">
 						<td>
 							<%= attachment_image_tag book.user, :image, :fill, 100, 100, class: "pull-left", format: 'jpeg', fallback: "no_image.jpg" %>
 						</td>

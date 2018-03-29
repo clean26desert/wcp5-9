@@ -12,7 +12,7 @@
 						<strong><th>Image</th><th>Name</th></strong><th></th>
 					</tr>
 					<% @users.each do |user| %>
-						<tr>
+						<tr class="height100">
 							<td><%= attachment_image_tag user, :image, :fill, 100, 100, class: "pull-left", format: 'jpeg', fallback: "no_image.jpg" %></td>
 							<td><%= user.name %></td>
 							<td><%= link_to "Show", user_path(user) %></td>

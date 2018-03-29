@@ -10,18 +10,26 @@ class BooksController < ApplicationController
 
   def create
     # ストロングパラメーターを使用
-    book = Book.new(book_params)
+    @book = Book.new(book_params)
     # 異なるテーブルのカラムの関連付け
-    book.user_id = current_user.id
+    @book.user_id = current_user.id
     # DBへ保存する
-    book.save
-    # 新規投稿画面へリダイレクト
-    redirect_to book_path(book)
+    if @book.save
+      # 新規投稿画面へリダイレクト
+      redirect_to book_path(@book)
+    else
+      @books = Book.all
+      @users = User.all
+      @user = current_user
+      render :index
+    end
   end
 
   def show
     # ストロングパラメーターを使用
     @book = Book.find(params[:id])
+    # create用の新規レコード
+    @boo = Book.new
     @user = current_user
     @users = User.all
    end
@@ -52,7 +60,7 @@ class BooksController < ApplicationController
     book.update(book_params)
     # 新規投稿画面へリダイレクト
     redirect_to book_path(book)
-  end
+   end
 
   private
 
